@@ -6,22 +6,35 @@ def read_file(file_name):
     """
     TODO: Step 1 - open file and read lines as words
     """
-    return []
+    f = open(file_name, "r") #opening the file in read only mode
+    l = f.readlines() #readlines() returns and array where each line is a value in an array
+    f.close() #closing the file when I'm done
+    return l
 
 
 def select_random_word(words):
     """
     TODO: Step 2 - select random word from list of file
     """
-    return words[0]
+    word = words[random.randint(0, len(words) -1)] #list index starts at 0 and so its max index is one lower than its size
+    #selecting a random letter and replacing it with _, then printing
+    letter = random.randint(0, len(word) -1)
+    w = ""
+    for i in range(len(word)):
+        if i != letter:
+            w += word[i]
+        else:
+            w += "_"
+    print("Guess the word: " + w) 
 
+    return word 
 
 
 def get_user_input():
     """
     TODO: Step 3 - get user input for answer
     """
-    return 'TODO'
+    return input("Guess the missing letter: ")
 
 
 def run_game(file_name):
@@ -31,7 +44,7 @@ def run_game(file_name):
     words = read_file(file_name)
     word = select_random_word(words)
     answer = get_user_input()
-    print('The word was: '+word)
+    print('The word was: '+ word )
 
 
 if __name__ == "__main__":
