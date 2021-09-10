@@ -18,7 +18,7 @@ def select_random_word(words):
     """
     word = words[random.randint(0, len(words) -1)] #list index starts at 0 and so its max index is one lower than its size
     #selecting a random letter and replacing it with _, then printing
-    letter = random.randint(0, len(word) -1)
+    letter = random.randint(0, len(word) -2)
     w = ""
     for i in range(len(word)):
         if i != letter:
