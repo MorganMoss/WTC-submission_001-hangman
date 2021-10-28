@@ -16,7 +16,7 @@ class MyTestCase(unittest.TestCase):
 
         with captured_io(StringIO('a\n')) as (out, err):
             hangman.select_random_word(['abc'])
-
+        
         output = out.getvalue().strip()
         self.assertEqual("Guess the word: _bc", output)
 
